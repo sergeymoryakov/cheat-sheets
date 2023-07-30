@@ -111,6 +111,31 @@
                 Remember to stop the server when you're done by pressing "Ctrl +
                 C" in the terminal or command prompt.
             </p>
+            <br />
+            <br />
+            <br />
+            <strong>DRAFT: for consideration:</strong>
+            <p>
+                For hosting at GitHub Pages use 'docs' folder for production
+                files AND check references (should be
+                href="./index.19b52dcd.css" instead of
+                href="/index.19b52dcd.css")
+            </p>
+            <p>
+                To solve the issue while building production files you may use:
+            </p>
+            <p>for Parcel v.1</p>
+            <code>
+                "scripts": { "build": "parcel build src/index.html --public-url
+                ./ --out-dir docs" }
+            </code>
+            <p>for Parcel v.2</p>
+            <code>
+                "scripts": { "build": "npx parcel build src/index.html
+                --public-url ./ --dist-dir docs" }
+            </code>
+            <p>After modifying the script, simplu run:</p>
+            <code>npm run build</code>
         </div>
     </body>
 </html>
