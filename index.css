@@ -36,10 +36,17 @@ body {
     }
 }
 
-h2 {
+h1,
+h2,
+h3 {
     margin-bottom: 1em;
     font-size: 1.5em;
     font-weight: bold;
+}
+
+ul {
+    margin-bottom: 0.5em;
+    list-style: inside;
 }
 
 p {
@@ -60,6 +67,6 @@ code {
 
 @media print {
     body {
-        margin: 1cm;
+        margin: 5px;
     }
 }
