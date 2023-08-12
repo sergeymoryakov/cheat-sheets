@@ -1,5 +1,5 @@
-export const article = {
-    tytle: `
+const article = {
+    title: `
         <h1>Git: Useful Commands</h1>
     `,
     body: `

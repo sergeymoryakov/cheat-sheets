@@ -1,45 +1,26 @@
-import { articles } from "./articles.js";
-const cheatSheetNode = document.getElementById("cheatSheet");
+const articleFiles = [
+    "git-config-ssh-key.js",
+    "git-useful-commands.js",
+    "js-generate-id.js",
+];
 
-let newList = "";
+const articlePromises = articleFiles.map((filename) =>
+    import(`./sheets/${filename}`)
+);
 
-articles.forEach((article) => {
-    newList += article.tytle;
-    newList += article.body;
-});
+Promise.all(articlePromises)
+    .then((articleModules) => {
+        const articleList = articleModules.map((module) => module.article);
+        const cheatSheetNode = document.getElementById("cheatSheet");
 
-cheatSheetNode.innerHTML = newList;
+        let newList = "";
 
-// // const articleContext = require.context("./sheets");
-// const articleContext = require.context("./sheets");
-
-// const articleFiles = articleContext.keys();
-
-// const articlePromises = articleFiles.map((filename) =>
-//     import(`./sheets/${filename}`)
-// );
-
-// Promise.all(articlePromises)
-//     .then((articleModules) => {
-//         const articleList = articleModules.map((module) => module.article);
-//         const cheatSheetNode = document.getElementById("cheatSheet");
-
-//         let newList = "";
-
-//         articleList.forEach((articleData) => {
-//             newList += articleData.tytle;
-//             newList += articleData.body;
-//         });
-//         cheatSheetNode.innerHTML = newList;
-//     })
-//     .catch((error) => {
-//         console.error("Error loading articles:", error);
-//     });
-
-// // const articleList = [];
-
-// // articleFiles.forEach((filename) => {
-// //     const articleModule = articleContext(filename);
-// //     const articleData = articleModule.article; // Access to the constant name in data files
-// //     articleList.push(articleData);
-// // });
+        articleList.forEach((articleData) => {
+            newList += articleData.title;
+            newList += articleData.body;
+        });
+        cheatSheetNode.innerHTML = newList;
+    })
+    .catch((error) => {
+        console.error("Error loading articles:", error);
+    });

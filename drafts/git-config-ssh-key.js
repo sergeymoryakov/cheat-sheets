@@ -1,8 +1,13 @@
 export const article = {
-    tytle: `
+    tytle: "
+    `
         <h1>Git: Configuration and SSH Key Setup</h1>
-    `,
-    body: `
+    `
+    "
+    ,
+    body: 
+    "
+    `
         <ol>
             <li>
                 <h2>Configuring Git</h2>
@@ -123,5 +128,7 @@ export const article = {
                 </ul>
             </li>
         </ol>
-    `,
+    `
+    "
+    ,
 };

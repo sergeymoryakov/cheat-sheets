@@ -1,5 +1,5 @@
-export const article = {
-    tytle: `
+const article = {
+    title: `
         <h2>JavaScript: Generate Unique ID</h2>
     `,
     body: `
