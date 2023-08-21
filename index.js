@@ -1,26 +1,28 @@
-const articleFiles = [
-    "git-config-ssh-key.js",
-    "git-useful-commands.js",
-    "js-generate-id.js",
-];
+import { articles } from "./articles";
 
-const articlePromises = articleFiles.map((filename) =>
-    import(`./sheets/${filename}`)
-);
+const CS_OPEN_CLASSNAME = "cs-open";
+const BODY_FIXED_CLASSNAME = "body-fixed";
 
-Promise.all(articlePromises)
-    .then((articleModules) => {
-        const articleList = articleModules.map((module) => module.article);
-        const cheatSheetNode = document.getElementById("cheatSheet");
+const bodyNode = document.querySelector("body");
+const popupNode = document.querySelector(".js-popup");
+const btnOpenNode = document.querySelector(".js-btn-order");
+const popupContentNode = document.querySelector(".js-popup-order-content");
+const btnCloseNode = document.querySelector(".js-btn-order-close");
 
-        let newList = "";
+btnOpenNode.addEventListener("click", togglePopup);
+btnCloseNode.addEventListener("click", togglePopup);
 
-        articleList.forEach((articleData) => {
-            newList += articleData.title;
-            newList += articleData.body;
-        });
-        cheatSheetNode.innerHTML = newList;
-    })
-    .catch((error) => {
-        console.error("Error loading articles:", error);
-    });
+popupNode.addEventListener("click", (event) => {
+    const isClickOutsideContent = !event
+        .composedPath()
+        .includes(popupContentNode);
+
+    if (isClickOutsideContent) {
+        togglePopup();
+    }
+});
+
+function togglePopup() {
+    popupNode.classList.toggle(CS_OPEN_CLASSNAME);
+    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
+}
