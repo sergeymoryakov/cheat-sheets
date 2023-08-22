@@ -36,15 +36,15 @@ function createListElement(item) {
 
 function popupCheatSheet(itemId) {
     clearCheatSheet();
-    const cheatSheet = "";
+    let cheatSheetCode = "";
     articles.forEach((item) => {
         if (item.id === itemId) {
-            cheatSheet.concat(`${item.title}`);
-            cheatSheet.concat(item.body);
-            console.log(cheatSheet);
+            cheatSheetCode += `<h2>${item.title}</h2>`;
+            cheatSheetCode += item.body;
+            console.log(cheatSheetCode);
         }
     });
-    csPopupNode.innerHTML = cheatSheet;
+    csPopupNode.innerHTML = cheatSheetCode;
 }
 
 function handlePopup(event) {
