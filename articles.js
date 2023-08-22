@@ -1,6 +1,7 @@
 export const articles = [
     {
-        tytle: "Lorem 1 ipsum dolor, sit amet consectetur adipisicing elit",
+        title: "Lorem 1 ipsum dolor, sit amet consectetur adipisicing elit",
+        id: "0001",
         tech: "Git",
         body: `
                 <ul>
@@ -36,7 +37,8 @@ export const articles = [
         `,
     },
     {
-        tytle: "Lorem 2 ipsum dolor, sit amet consectetur adipisicing elit",
+        title: "Lorem 2 ipsum dolor, sit amet consectetur adipisicing elit",
+        id: "0002",
         tech: "Git",
         body: `
                 <ul>
@@ -72,7 +74,8 @@ export const articles = [
         `,
     },
     {
-        tytle: "Lorem 3 ipsum dolor, sit amet consectetur adipisicing elit",
+        title: "Lorem 3 ipsum dolor, sit amet consectetur adipisicing elit",
+        id: "0003",
         tech: "HTML",
         body: `
                 <ul>
@@ -108,7 +111,8 @@ export const articles = [
         `,
     },
     {
-        tytle: "Lorem 4 ipsum dolor, sit amet consectetur adipisicing elit",
+        title: "Lorem 4 ipsum dolor, sit amet consectetur adipisicing elit",
+        id: "0004",
         tech: "CSS",
         body: `
                 <ul>
@@ -144,7 +148,8 @@ export const articles = [
         `,
     },
     {
-        tytle: "Lorem 5 ipsum dolor, sit amet consectetur adipisicing elit",
+        title: "Lorem 5 ipsum dolor, sit amet consectetur adipisicing elit",
+        id: "0005",
         tech: "JavaScript",
         body: `
                 <ul>
@@ -180,7 +185,8 @@ export const articles = [
         `,
     },
     {
-        tytle: "Lorem 6 ipsum dolor, sit amet consectetur adipisicing elit",
+        title: "Lorem 6 ipsum dolor, sit amet consectetur adipisicing elit",
+        id: "0006",
         tech: "Firebase",
         body: `
                 <ul>
