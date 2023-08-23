@@ -39,6 +39,9 @@
     border-radius: 10px;
 }
 
+/* * *    I M P O R T A N T    * * */
+/* NOTE: DELETE CODE BELOW IF NOT REQUIRED FOR PRODUCTION */
+
 .btn-order-close {
     position: absolute;
     top: 40px;
