@@ -1,11 +1,12 @@
 import { articles } from "./articles.js";
 
-// const CS_OPEN_CLASSNAME = "cs-open";
-// const BODY_FIXED_CLASSNAME = "body-fixed";
+const CS_OPEN_CLASSNAME = "cs-popup-open";
+const BODY_FIXED_CLASSNAME = "body-fixed";
 
-// const bodyNode = document.querySelector("body");
-const csListNode = document.querySelector(".cs-list");
-const csPopupNode = document.querySelector(".cs-popup");
+const bodyNode = document.querySelector("body");
+const csListNode = document.getElementById("csList");
+const csPopupNode = document.getElementById("csPopup");
+const csPopupContentNode = document.getElementById("csPopupContent");
 // const popupNode = document.querySelector(".js-popup");
 // const btnOpenNode = document.querySelector(".js-btn-order");
 // const popupContentNode = document.querySelector(".js-popup-order-content");
@@ -19,7 +20,7 @@ function clearTitleList() {
 }
 
 function clearCheatSheet() {
-    return (csPopupNode.innerHTML = "");
+    return (csPopupContentNode.innerHTML = "");
 }
 
 function createListElement(item) {
@@ -36,15 +37,16 @@ function createListElement(item) {
 
 function popupCheatSheet(itemId) {
     clearCheatSheet();
-    let cheatSheetCode = "";
+    let cheatSheetHTML = "";
     articles.forEach((item) => {
         if (item.id === itemId) {
-            cheatSheetCode += `<h2>${item.title}</h2>`;
-            cheatSheetCode += item.body;
-            console.log(cheatSheetCode);
+            cheatSheetHTML += `<h2>${item.title}</h2>`;
+            cheatSheetHTML += item.body;
+            console.log(cheatSheetHTML);
         }
     });
-    csPopupNode.innerHTML = cheatSheetCode;
+    togglePopup();
+    csPopupContentNode.innerHTML = cheatSheetHTML;
 }
 
 function handlePopup(event) {
@@ -70,17 +72,17 @@ function renderTitleList(articles) {
 
 renderTitleList(articles);
 
-// popupNode.addEventListener("click", (event) => {
-//     const isClickOutsideContent = !event
-//         .composedPath()
-//         .includes(popupContentNode);
+csPopupNode.addEventListener("click", (event) => {
+    const isClickOutsideContent = !event
+        .composedPath()
+        .includes(csPopupContentNode);
 
-//     if (isClickOutsideContent) {
-//         togglePopup();
-//     }
-// });
+    if (isClickOutsideContent) {
+        togglePopup();
+    }
+});
 
-// function togglePopup() {
-//     popupNode.classList.toggle(CS_OPEN_CLASSNAME);
-//     bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
-// }
+function togglePopup() {
+    csPopupNode.classList.toggle(CS_OPEN_CLASSNAME);
+    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
+}
