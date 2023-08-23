@@ -24,13 +24,18 @@ function clearCheatSheet() {
 }
 
 function createListElement(item) {
-    const listItem = document.createElement("button");
-    listItem.className = "list-item-btn";
-    listItem.id = `liBtn_${item.id}`;
-    listItem.innerText = item.title;
+    const listItem = document.createElement("li");
+    listItem.className = "list-item";
+
+    const listItemBtn = document.createElement("button");
+    listItemBtn.className = "list-item-btn";
+    listItemBtn.id = `liBtn_${item.id}`;
+    listItemBtn.innerText = item.title;
 
     // console.log(`liBtn_${item.id}`);
     // console.log(item.title);
+
+    listItem.appendChild(listItemBtn);
 
     return listItem;
 }
