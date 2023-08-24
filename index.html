@@ -9,14 +9,23 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="container-master">
+        <div class="container">
             <ul id="csList" class="cs-list">
                 Error in rendering list of Cheat Sheets
             </ul>
         </div>
         <div id="csPopup" class="cs-popup">
             <div id="csPopupContent" class="cs-popup-content">
-                Error in rendering Cheat Sheet
+                <div class="wrapper-btn" id="wrapperBtn">
+                    <button class="return-btn" id="returnBtn">Return</button>
+                    <button class="print-btn" id="printBtn">Print</button>
+                </div>
+                <span class="cs-popup-content_title" id="csTitle"
+                    >Error printing title</span
+                >
+                <span class="cs-popup-content_body" id="csBody"
+                    >Error printing body text</span
+                >
             </div>
         </div>
         <script type="module" src="index.js"></script>

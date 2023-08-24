@@ -28,19 +28,27 @@
 
 .cs-popup-content {
     position: relative;
+    padding: 3em;
     width: 100%;
     max-height: 100%;
 
     /* NOTE: "overflow-y" Might Create scroll - remove if not needed  */
     overflow-y: auto;
 
-    padding: 80px 16px;
     background-color: #ffffff;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 /* * *    I M P O R T A N T    * * */
 /* NOTE: DELETE CODE BELOW IF NOT REQUIRED FOR PRODUCTION */
+
+.wrapper-btn {
+    margin-bottom: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .btn-order-close {
     position: absolute;

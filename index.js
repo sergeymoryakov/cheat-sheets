@@ -6,21 +6,19 @@ const BODY_FIXED_CLASSNAME = "body-fixed";
 const bodyNode = document.querySelector("body");
 const csListNode = document.getElementById("csList");
 const csPopupNode = document.getElementById("csPopup");
-const csPopupContentNode = document.getElementById("csPopupContent");
-// const popupNode = document.querySelector(".js-popup");
-// const btnOpenNode = document.querySelector(".js-btn-order");
-// const popupContentNode = document.querySelector(".js-popup-order-content");
-// const btnCloseNode = document.querySelector(".js-btn-order-close");
-
-// btnOpenNode.addEventListener("click", togglePopup);
-// btnCloseNode.addEventListener("click", togglePopup);
+let csPopupContentNode = document.getElementById("csPopupContent");
+const csTitleNode = document.getElementById("csTitle");
+const csBodyNode = document.getElementById("csBody");
+const returnBtnNode = document.getElementById("returnBtn");
+const printBtnNode = document.getElementById("printBtn");
 
 function clearTitleList() {
     return (csListNode.innerHTML = "");
 }
 
 function clearCheatSheet() {
-    return (csPopupContentNode.innerHTML = "");
+    csTitleNode.innerHTML = "";
+    csBodyNode.innerHTML = "";
 }
 
 function createListElement(item) {
@@ -37,21 +35,60 @@ function createListElement(item) {
 
     listItem.appendChild(listItemBtn);
 
+    console.log(listItem);
     return listItem;
 }
 
 function popupCheatSheet(itemId) {
     clearCheatSheet();
-    let cheatSheetHTML = "";
+
+    const cheatSheetContent = document.createElement("span");
+
+    // const cheatSheetContent = document.createElement("div");
+    // cheatSheetContent.className = "cs-popup-content";
+    // cheatSheetContent.id = "csPopupContent";
+
+    // Create buttons wrapper at the top of Cheat Sheet:
+    // const wrapperBtn = document.createElement("div");
+    // wrapperBtn.className = "wrapper-btn";
+    // wrapperBtn.id = "wrapperBtn";
+
+    // const returnBtnX = document.createElement("button");
+    // returnBtnX.className = "return-btn";
+    // returnBtnX.id = "returnBtn";
+    // returnBtnX.innerText = "returnBtn";
+
+    // const printBtn = document.createElement("button");
+    // printBtn.className = "print-btn";
+    // printBtn.id = "printBtn";
+    // printBtn.innerText = "printBtn";
+
+    // wrapperBtn.appendChild(returnBtnX);
+    // wrapperBtn.appendChild(printBtn);
+
+    // // Initialize Cheat Sheet Template:
+    // cheatSheetContent.appendChild(wrapperBtn);
+
     articles.forEach((item) => {
         if (item.id === itemId) {
-            cheatSheetHTML += `<h2>${item.title}</h2>`;
-            cheatSheetHTML += item.body;
-            console.log(cheatSheetHTML);
+            csTitleNode.innerHTML = `<h2>${item.title}</h2>`;
+            csBodyNode.innerHTML = item.body;
+            // const itemTitle = document.createElement("h2");
+            // itemTitle.innerHTML = item.title;
+            // const itemBody = document.createElement("span");
+            // itemBody.innerHTML = item.body;
+
+            // cheatSheetContent.appendChild(itemTitle);
+            // cheatSheetContent.appendChild(itemBody);
         }
     });
+
     togglePopup();
-    csPopupContentNode.innerHTML = cheatSheetHTML;
+
+    // console.log(cheatSheetContent);
+
+    // csPopupContentNode.appendChild(cheatSheetContent);
+    // csPopupContentNode.innerHTML = cheatSheetHTML;
 }
 
 function handlePopup(event) {
@@ -91,3 +128,10 @@ function togglePopup() {
     csPopupNode.classList.toggle(CS_OPEN_CLASSNAME);
     bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
 }
+
+function csPrint() {
+    console.log("PRINT COMMAND RECEIVED");
+}
+
+returnBtnNode.addEventListener("click", togglePopup);
+printBtnNode.addEventListener("click", csPrint);
