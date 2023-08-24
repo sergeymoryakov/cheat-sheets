@@ -180,8 +180,163 @@ export const articles = [
             `,
     },
     {
-        title: "JavaScript: Function Types",
+        title: "General: Code Refactoring",
         id: "0003",
+        tech: "General",
+        body: `
+        <p>
+            Here's a general approach to refactoring for readability and
+            optimization:
+        </p>
+        <p>
+            <strong> Modularize the Code: </strong> Group related functionality
+            into functions or modules. This makes the code easier to read and
+            understand at a glance.
+        </p>
+        <p>
+            <strong> Use Descriptive Variable and Function Names: </strong>
+            Names should be self-explanatory. A developer should be able to
+            understand the purpose of a variable or function based on its name.
+        </p>
+        <p>
+            <strong> Avoid Magic Values: </strong> Use named constants instead
+            of hard-coded values. For instance, instead of directly using a
+            string like "actionItems", you can define a constant
+            COLLECTION_NAME.
+        </p>
+        <p>
+            <strong> Comments and Documentation: </strong> While the code should
+            be as self-explanatory as possible, judicious use of comments can
+            help explain the purpose of a piece of code, any intricacies, or
+            reasons for specific implementations.
+        </p>
+        <p>
+            <strong> Consistent Formatting: </strong> Ensure consistent
+            indentation, use of spaces, and other formatting conventions. This
+            makes the code visually clean.
+        </p>
+        <p>
+            <strong> Error Handling: </strong> Ensure that all possible error
+            scenarios are handled. This includes not only handling Firestore
+            errors but also potential issues like trying to access properties on
+            undefined or null.
+        </p>
+        <p>
+            <strong> Optimize for Performance: </strong> While this isn't
+            strictly about readability, sometimes refactoring can help improve
+            performance. For example, avoid unnecessary DOM updates or Firestore
+            reads.
+        </p>
+
+        <ol>
+            <li>
+                <h3>Modularize the Code:</h3>
+                <ul>
+                    <li>
+                        Group related functions together. For instance, all
+                        utility functions like generateUniqueId can be placed
+                        together. Similarly, group event handlers together.
+                    </li>
+                    <li>
+                        Consider using an IIFE (Immediately Invoked Function
+                        Expression) to prevent global namespace pollution.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Use Descriptive Variable and Function Names:</h3>
+                <ul>
+                    <li>
+                        Most of your variable names are descriptive, but ensure
+                        this consistency throughout. For instance, names like
+                        newItemInputNode give a clear understanding of what the
+                        variable is for.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Avoid Magic Values:</h3>
+                <ul>
+                    <li>
+                        For strings or values that are used multiple times,
+                        consider defining them as constants at the top of your
+                        script. This not only makes the code more readable but
+                        also easier to maintain.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Comments and Documentation:</h3>
+                <ul>
+                    <li>
+                        You've done a good job commenting the different sections
+                        of your code. Continue this practice, especially for
+                        complex logic. Remember, comments should explain the
+                        "why" and not the "what" (code itself tells the "what").
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Consistent Formatting:</h3>
+                <ul>
+                    <li>
+                        Ensure consistent use of spaces, indentation, and
+                        newline breaks. This will make the code easier to scan
+                        and read.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Error Handling:</h3>
+                <ul>
+                    <li>
+                        You've incorporated error handling for Firestore
+                        operations. Ensure that other potential points of
+                        failure, like DOM manipulations or array operations, are
+                        also handled gracefully.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Optimize for Performance:</h3>
+                <ul>
+                    <li>
+                        If there are repetitive DOM lookups, consider caching
+                        the element in a variable.
+                    </li>
+                    <li>
+                        For operations that could be resource-intensive or
+                        repeated often, consider if there are more efficient
+                        ways to achieve the same result.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h3>Additional Suggestions:</h3>
+                <ul>
+                    <li>
+                        Event Delegation: Instead of attaching event listeners
+                        to each item, consider using event delegation. This
+                        means you attach an event listener to a parent element
+                        and use logic inside the handler to determine which
+                        child was clicked. This is especially useful for lists
+                        where items can be dynamically added or removed.
+                    </li>
+                    <li>
+                        Data Manipulation: When dealing with arrays like
+                        actionItems, consider using functional programming
+                        methods like map, filter, and reduce for
+                        transformations. They make the code more readable and
+                        declarative.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        `,
+    },
+    {
+        title: "JavaScript: Function Types",
+        id: "0004",
         tech: "JavaScript",
         body: `
         <p>
@@ -360,7 +515,7 @@ export const articles = [
     },
     {
         title: "JavaScript: Generate Unique ID",
-        id: "0004",
+        id: "0005",
         tech: "JavaScript",
         body: `
         <p>
@@ -428,6 +583,27 @@ export const articles = [
             This function generates an ID of a given length using numbers and
             lowercase letters.
         </p>
+        `,
+    },
+    {
+        title: "",
+        id: "",
+        tech: "",
+        body: `
+        `,
+    },
+    {
+        title: "",
+        id: "",
+        tech: "",
+        body: `
+        `,
+    },
+    {
+        title: "",
+        id: "",
+        tech: "",
+        body: `
         `,
     },
 ];
