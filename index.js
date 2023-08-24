@@ -131,6 +131,7 @@ function togglePopup() {
 
 function csPrint() {
     console.log("PRINT COMMAND RECEIVED");
+    window.print();
 }
 
 returnBtnNode.addEventListener("click", togglePopup);
