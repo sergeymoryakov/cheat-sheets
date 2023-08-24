@@ -30,9 +30,6 @@ function createListElement(item) {
     listItemBtn.id = `liBtn_${item.id}`;
     listItemBtn.innerText = item.title;
 
-    // console.log(`liBtn_${item.id}`);
-    // console.log(item.title);
-
     listItem.appendChild(listItemBtn);
 
     console.log(listItem);
@@ -42,53 +39,14 @@ function createListElement(item) {
 function popupCheatSheet(itemId) {
     clearCheatSheet();
 
-    const cheatSheetContent = document.createElement("span");
-
-    // const cheatSheetContent = document.createElement("div");
-    // cheatSheetContent.className = "cs-popup-content";
-    // cheatSheetContent.id = "csPopupContent";
-
-    // Create buttons wrapper at the top of Cheat Sheet:
-    // const wrapperBtn = document.createElement("div");
-    // wrapperBtn.className = "wrapper-btn";
-    // wrapperBtn.id = "wrapperBtn";
-
-    // const returnBtnX = document.createElement("button");
-    // returnBtnX.className = "return-btn";
-    // returnBtnX.id = "returnBtn";
-    // returnBtnX.innerText = "returnBtn";
-
-    // const printBtn = document.createElement("button");
-    // printBtn.className = "print-btn";
-    // printBtn.id = "printBtn";
-    // printBtn.innerText = "printBtn";
-
-    // wrapperBtn.appendChild(returnBtnX);
-    // wrapperBtn.appendChild(printBtn);
-
-    // // Initialize Cheat Sheet Template:
-    // cheatSheetContent.appendChild(wrapperBtn);
-
     articles.forEach((item) => {
         if (item.id === itemId) {
             csTitleNode.innerHTML = `<h2>${item.title}</h2>`;
             csBodyNode.innerHTML = item.body;
-            // const itemTitle = document.createElement("h2");
-            // itemTitle.innerHTML = item.title;
-            // const itemBody = document.createElement("span");
-            // itemBody.innerHTML = item.body;
-
-            // cheatSheetContent.appendChild(itemTitle);
-            // cheatSheetContent.appendChild(itemBody);
         }
     });
 
     togglePopup();
-
-    // console.log(cheatSheetContent);
-
-    // csPopupContentNode.appendChild(cheatSheetContent);
-    // csPopupContentNode.innerHTML = cheatSheetHTML;
 }
 
 function handlePopup(event) {
@@ -112,6 +70,16 @@ function renderTitleList(articles) {
     });
 }
 
+function togglePopup() {
+    csPopupNode.classList.toggle(CS_OPEN_CLASSNAME);
+    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
+}
+
+function csPrint() {
+    console.log("PRINT COMMAND RECEIVED");
+    window.print();
+}
+
 renderTitleList(articles);
 
 csPopupNode.addEventListener("click", (event) => {
@@ -124,15 +92,46 @@ csPopupNode.addEventListener("click", (event) => {
     }
 });
 
-function togglePopup() {
-    csPopupNode.classList.toggle(CS_OPEN_CLASSNAME);
-    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
-}
-
-function csPrint() {
-    console.log("PRINT COMMAND RECEIVED");
-    window.print();
-}
-
 returnBtnNode.addEventListener("click", togglePopup);
-printBtnNode.addEventListener("click", csPrint);
+
+// Print Button Listener
+// printBtnNode.addEventListener("click", csPrint);
+
+printBtnNode.addEventListener("click", () => {
+    const title = document.getElementById("csTitle").innerHTML;
+    const body = document.getElementById("csBody").innerHTML;
+
+    const printWindow = window.open("", "_blank");
+    printWindow.document.open();
+
+    // Include external stylesheets
+    const stylesheets = Array.from(
+        document.querySelectorAll('link[rel="stylesheet"]')
+    )
+        .map((link) => `<link rel="stylesheet" href="${link.href}" />`)
+        .join("");
+
+    // Include internal styles
+    const internalStyles = Array.from(document.querySelectorAll("style"))
+        .map((style) => `<style>${style.innerHTML}</style>`)
+        .join("");
+
+    printWindow.document.write(
+        "<html><head>" +
+            stylesheets +
+            internalStyles +
+            "<title>" +
+            title +
+            "</title></head><body>" +
+            body +
+            "</body></html>"
+    );
+    printWindow.document.close();
+    printWindow.focus();
+
+    // Give some time for the content to load and then trigger print
+    setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+    }, 250);
+});
