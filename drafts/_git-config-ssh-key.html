@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Git Configuration and SSH Key Setup</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
             }
-            h1 {
+
+            h2 {
                 color: #333;
-            }
-            ol {
-                list-style-type: decimal;
-                padding-left: 20px;
-            }
-            li {
+                font-size: 18px;
+                font-weight: bold;
                 margin-bottom: 10px;
             }
+
+            p {
+                color: #666;
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+
             code {
-                background-color: #f0f0f0;
+                background-color: #f5f5f5;
+                border-radius: 3px;
                 font-family: Consolas, monospace;
-                padding: 2px 4px;
+                padding: 2px 5px;
             }
         </style>
     </head>
     <body>
-        <h1>Git Configuration and SSH Key Setup</h1>
+        <h2>Git: Configuration and SSH Key Setup</h2>
         <ol>
             <li>
                 <h2>Configuring Git</h2>
@@ -98,49 +103,6 @@
                         command would be:
                         <br />
                         <code>ssh-add ~/.ssh/id_rsa</code>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h2>Add SSH Key to Your GitHub Account</h2>
-                <ul>
-                    <li>
-                        Now, copy the contents of the public key to your
-                        clipboard using the following command:
-                        <br />
-                        <code>clip &lt; ~/.ssh/id_rsa.pub</code>
-                        - for Windows computer
-                        <br /><code>pbcopy < ~/.ssh/id_rsa.pub</code> - for
-                        MacOS computer
-                        <br />
-                        If you saved the key in a custom location, replace
-                        <code>~/.ssh/id_rsa.pub</code> with the path to your
-                        public key file.
-                    </li>
-                    <li>
-                        Visit the GitHub website (<a
-                            href="https://github.com/"
-                            target="_blank"
-                            >https://github.com/</a
-                        >) and sign in to your account.
-                    </li>
-                    <li>
-                        Click on your profile picture in the top-right corner
-                        and select "Settings" from the dropdown menu.
-                    </li>
-                    <li>In the left sidebar, click on "SSH and GPG keys".</li>
-                    <li>Click on the "New SSH key" button.</li>
-                    <li>
-                        Provide a descriptive title for your SSH key in the
-                        "Title" field.
-                    </li>
-                    <li>
-                        Paste the copied public key into the "Key" field by
-                        pressing Ctrl+V (for Windows) or Cmd+V (for MacOS).
-                    </li>
-                    <li>
-                        Finally, click on the "Add SSH key" button to save the
-                        key to your GitHub account.
                     </li>
                 </ul>
             </li>

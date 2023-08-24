@@ -50,16 +50,18 @@ Hoisting:
 
 Function declarations are hoisted, meaning you can call them before their actual definition in the code.
 Function expressions and arrow functions are not hoisted, so you must define them before calling.
+
 'this' context:
 
 In regular function declarations and expressions, the value of 'this' is dynamically determined based on how the function is called. It can vary depending on the context.
 In arrow functions, 'this' is lexically scoped, which means it takes the value of 'this' from its enclosing function or scope.
+
 Syntax length:
 
 Arrow functions provide a more concise syntax, especially for one-liner functions.
 Which method to use depends on the situation. Function declarations are generally used for named functions, whereas function expressions and arrow functions are often used for anonymous functions or when you need to pass functions as arguments to other functions (e.g., in higher-order functions).
 
-## Differences:
+Differences:
 
 The main difference lies in when you define the function in your code:
 

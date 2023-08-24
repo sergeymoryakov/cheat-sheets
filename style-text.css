@@ -1,22 +1,30 @@
 /* Styling Text */
 
-h1,
-h2,
-h3 {
+h1 {
+    font-size: 1.5rem;
     margin-bottom: 1em;
     font-weight: bold;
 }
 
-h1 {
-    font-size: 1.5rem;
-}
-
-h2 {
+h2,
+.cs-title {
     font-size: 1.25rem;
+    margin-bottom: 1em;
+    font-weight: bold;
 }
 
-h3 {
+h3,
+.cs-section {
     font-size: 1rem;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+h4,
+.cs-sub-section {
+    font-size: 1rem;
+    margin-bottom: 1em;
+    font-weight: bold;
 }
 
 li {

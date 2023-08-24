@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h2 { color: #4CAF50; }
+pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+</style>
+</head>
+<body>
+<h1>JavaScript Functions Cheat Sheet</h1>
+<p>In JavaScript, functions are blocks of code that can be defined and executed when called upon. They are used to perform specific tasks or calculations and are an essential part of the language. The syntax of JavaScript functions consists of three main parts:</p>
+<h2>Function Declaration:</h2>
+<p>The most common and traditional way to define a function is using the function declaration. It has the following syntax:</p>
+<h2>function functionName(parameters) {</h2>
+<p>// Function body (code block)</p>
+<p>// This is where the function&#x27;s logic resides</p>
+<p>// It performs the desired operations when the function is called</p>
+<p>return someValue; // Optional, used to return a result</p>
+<p>}</p>
+<p>Example:</p>
+<h2>function add(a, b) {</h2>
+<p>return a + b;</p>
+<p>}</p>
+<h2>Function Expression:</h2>
+<p>In JavaScript, functions are also treated as first-class objects, which means they can be assigned to variables. This is known as a function expression. It has the following syntax:</p>
+<p>const functionName = function(parameters) {</p>
+<p>// Function body (code block)</p>
+<p>return someValue; // Optional, used to return a result</p>
+<p>};</p>
+<p>Example:</p>
+<p>const subtract = function(a, b) {</p>
+<p>return a - b;</p>
+<p>};</p>
+<p>Arrow Function Expression:</p>
+<p>Introduced in ECMAScript 6 (ES6), arrow functions provide a more concise syntax for defining functions, especially when the function is short. They also have some differences in how they handle the &#x27;this&#x27; keyword compared to regular functions. The syntax for an arrow function is as follows:</p>
+<p>const functionName = (parameters) =&gt; {</p>
+<p>// Function body (code block)</p>
+<p>return someValue; // Optional, used to return a result</p>
+<p>};</p>
+<p>Example:</p>
+<p>const multiply = (a, b) =&gt; {</p>
+<p>return a \* b;</p>
+<p>};</p>
+<p>Differences between these three methods:</p>
+<p>Hoisting:</p>
+<h2>Function declarations are hoisted, meaning you can call them before their actual definition in the code.</h2>
+<h2>Function expressions and arrow functions are not hoisted, so you must define them before calling.</h2>
+<p>&#x27;this&#x27; context:</p>
+<p>In regular function declarations and expressions, the value of &#x27;this&#x27; is dynamically determined based on how the function is called. It can vary depending on the context.</p>
+<p>In arrow functions, &#x27;this&#x27; is lexically scoped, which means it takes the value of &#x27;this&#x27; from its enclosing function or scope.</p>
+<p>Syntax length:</p>
+<p>Arrow functions provide a more concise syntax, especially for one-liner functions.</p>
+<p>Which method to use depends on the situation. Function declarations are generally used for named functions, whereas function expressions and arrow functions are often used for anonymous functions or when you need to pass functions as arguments to other functions (e.g., in higher-order functions).</p>
+<p>Differences:</p>
+<p>The main difference lies in when you define the function in your code:</p>
+<h2>Function Declaration:</h2>
+<h2>Function declarations are hoisted, which means they are available throughout the scope they are defined in, even before the actual declaration in the code.</h2>
+<p>You can call a function declared using the function keyword at any point in your code, even before the line where the function is declared.</p>
+<p>Example:</p>
+<p>// Calling the &#x27;add&#x27; function before its declaration</p>
+<p>const result = add(5, 10);</p>
+<p>console.log(result); // Output: 15</p>
+<p>// Function declaration</p>
+<h2>function add(a, b) {</h2>
+<p>return a + b;</p>
+<p>}</p>
+<h2>Function Expression:</h2>
+<h2>Function expressions are not hoisted, so you need to define them before calling them.</h2>
+<p>If you try to call an expressed function before its definition, you&#x27;ll get an error.</p>
+<p>Example:</p>
+<p>// This will cause an error: &quot;TypeError: subtract is not a function&quot;</p>
+<p>const result = subtract(10, 5);</p>
+<p>// Function expression</p>
+<p>const subtract = function(a, b) {</p>
+<p>return a - b;</p>
+<p>};</p>
+<p>To avoid errors with function expressions, make sure you define the function before you attempt to call it.</p>
+<p>Arrow Function Expression:</p>
+<p>Like function expressions, arrow functions are also not hoisted, so they should be defined before calling.</p>
+<p>The same rule applies here: define the arrow function before calling it.</p>
+<p>Example:</p>
+<p>// This will cause an error: &quot;TypeError: multiply is not a function&quot;</p>
+<p>const result = multiply(2, 3);</p>
+<p>// Arrow function expression</p>
+<p>const multiply = (a, b) =&gt; {</p>
+<p>return a \* b;</p>
+<p>};</p>
+<p>So, the importance of expressing a function before calling it applies to both function expressions and arrow functions, as you need to ensure the function is defined and available in memory at the time of the call.</p>
+</body>
+</html>

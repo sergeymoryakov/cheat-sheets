@@ -140,11 +140,11 @@ body {
 }
 
 .return-btn {
-    background-image: url(img_arrow_back.png);
+    background-image: url(img_arrow_back_100.png);
 }
 
 .print-btn {
-    background-image: url(img_print.png);
+    background-image: url(img_print_100.png);
 }
 
 @media print {
