@@ -12,6 +12,8 @@ const csBodyNode = document.getElementById("csBody");
 const returnBtnNode = document.getElementById("returnBtn");
 const printBtnNode = document.getElementById("printBtn");
 
+// Functions
+
 function clearTitleList() {
     return (csListNode.innerHTML = "");
 }
@@ -36,6 +38,20 @@ function createListElement(item) {
     return listItem;
 }
 
+function renderTitleList(articles) {
+    console.log(articles);
+    clearTitleList();
+    articles.forEach((element) => {
+        const listElement = createListElement(element);
+        csListNode.appendChild(listElement);
+    });
+
+    const listElements = document.querySelectorAll(".list-item-btn");
+    listElements.forEach((element) => {
+        element.addEventListener("click", (event) => handlePopup(event));
+    });
+}
+
 function popupCheatSheet(itemId) {
     clearCheatSheet();
 
@@ -56,48 +72,9 @@ function handlePopup(event) {
     popupCheatSheet(itemId);
 }
 
-function renderTitleList(articles) {
-    console.log(articles);
-    clearTitleList();
-    articles.forEach((element) => {
-        const listElement = createListElement(element);
-        csListNode.appendChild(listElement);
-    });
-
-    const listElements = document.querySelectorAll(".list-item-btn");
-    listElements.forEach((element) => {
-        element.addEventListener("click", (event) => handlePopup(event));
-    });
-}
-
-function togglePopup() {
-    csPopupNode.classList.toggle(CS_OPEN_CLASSNAME);
-    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
-}
-
 function csPrint() {
-    console.log("PRINT COMMAND RECEIVED");
-    window.print();
-}
-
-renderTitleList(articles);
-
-csPopupNode.addEventListener("click", (event) => {
-    const isClickOutsideContent = !event
-        .composedPath()
-        .includes(csPopupContentNode);
-
-    if (isClickOutsideContent) {
-        togglePopup();
-    }
-});
-
-returnBtnNode.addEventListener("click", togglePopup);
-
-// Print Button Listener
-// printBtnNode.addEventListener("click", csPrint);
-
-printBtnNode.addEventListener("click", () => {
+    // console.log("PRINT COMMAND RECEIVED");
+    // window.print();
     const title = document.getElementById("csTitle").innerHTML;
     const body = document.getElementById("csBody").innerHTML;
 
@@ -123,9 +100,11 @@ printBtnNode.addEventListener("click", () => {
             "<title>" +
             title +
             "</title></head><body>" +
+            title +
             body +
             "</body></html>"
     );
+
     printWindow.document.close();
     printWindow.focus();
 
@@ -134,4 +113,27 @@ printBtnNode.addEventListener("click", () => {
         printWindow.print();
         printWindow.close();
     }, 250);
+}
+
+function togglePopup() {
+    csPopupNode.classList.toggle(CS_OPEN_CLASSNAME);
+    bodyNode.classList.toggle(BODY_FIXED_CLASSNAME);
+}
+
+// Execution Code
+
+renderTitleList(articles);
+
+csPopupNode.addEventListener("click", (event) => {
+    const isClickOutsideContent = !event
+        .composedPath()
+        .includes(csPopupContentNode);
+
+    if (isClickOutsideContent) {
+        togglePopup();
+    }
 });
+
+returnBtnNode.addEventListener("click", togglePopup);
+
+printBtnNode.addEventListener("click", csPrint);
