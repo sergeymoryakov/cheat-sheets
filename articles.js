@@ -380,8 +380,78 @@ export const articles = [
         `,
     },
     {
-        title: "JavaScript: Function Types",
+        title: "General: Error Handling",
         id: "0005",
+        tech: "General",
+        body: `
+        <p>
+            Proper error handling is crucial to ensure that your application
+            behaves predictably and provides useful feedback, even when
+            unexpected scenarios occur.
+        </p>
+        <p>
+            Here are some specific areas in your code that could benefit from
+            improved error handling:
+        </p>
+        <h3>DOM Element References:</h3>
+        <p>
+            When querying for DOM elements, there's a chance that an element
+            might not be found (e.g., if there's a typo in the ID or class name,
+            or if the HTML structure changes). For instance:
+        </p>
+        <code>
+            const newItemInputNode = document.getElementById('newItemInput');
+        </code>
+        <p>
+            Before using newItemInputNode, you might want to check if it's not
+            null:
+            <code>
+                if (!newItemInputNode) { console.error("Couldn't find the input
+                element with ID 'newItemInput'"); return; }
+            </code>
+        </p>
+        <h3>Event Handlers:</h3>
+        <p>
+            Event handlers can sometimes be sources of unexpected behavior,
+            especially when making assumptions about the event object or the
+            state of the application. Consider wrapping the body of event
+            handlers in try/catch to capture any unforeseen issues:
+        </p>
+        <code>
+            function handleSomeEvent(event) { try { // ... event handling logic
+            } catch (error) { console.error("Error handling the event:", error);
+            } }
+        </code>
+        <h3>Array or Object Manipulations:</h3>
+        <p>
+            When accessing properties on objects or manipulating arrays, ensure
+            you check for existence or length before proceeding. For instance,
+            before accessing someArray[0], you might check if someArray.length >
+            0.
+        </p>
+        <h3>Feedback to Users:</h3>
+        <p>
+            While logging errors to the console is useful during development,
+            end users will likely not check the console. Consider providing
+            feedback to users when errors occur, either via alerts, UI
+            notifications, or other visual cues.
+        </p>
+        <h3>External Libraries or APIs:</h3>
+        <p>
+            If you integrate external libraries or APIs in the future, ensure
+            you handle potential failures or inconsistencies in their behavior.
+        </p>
+        <h3>Asynchronous Operations:</h3>
+        <p>
+            For asynchronous operations, especially promises, ensure you handle
+            both the success and failure cases. The .catch() method on promises
+            or the catch block for async/await is crucial.
+        </p>
+        `,
+    },
+    {
+        title: "JavaScript: Function Types",
+        id: "0006",
         tech: "JavaScript",
         body: `
         <p>
@@ -559,8 +629,78 @@ export const articles = [
         `,
     },
     {
+        title: "JavaScript: Functions IIFE",
+        id: "0007",
+        tech: "JavaScript",
+        body: `
+        <p>
+            An Immediately Invoked Function Expression (IIFE, pronounced as
+            "iffy") is a JavaScript function that runs as soon as it is defined.
+            It's a design pattern that's particularly useful in JavaScript when
+            you want to create a new scope to avoid polluting the global
+            namespace. Why use an IIFE?
+        </p>
+        <p>
+            Avoid Global Namespace Pollution: JavaScript has a global namespace
+            where everything defined outside of a function lives. If you have
+            multiple scripts or large applications, there's a risk of
+            overwriting or misusing variables/functions if they share the same
+            names. An IIFE provides a way to encapsulate your code, creating a
+            private scope, thus avoiding any unintentional interactions with
+            other scripts.
+        </p>
+        <p>
+            Data Privacy: Since the code inside an IIFE is in its own scope, it
+            provides data privacy. Variables and functions defined inside the
+            IIFE cannot be accessed from outside it. How does an IIFE look?
+        </p>
+        <p>Here's the basic syntax of an IIFE:</p>
+        <code> (function() { // Your code here })(); </code>
+        <p>You can also pass arguments to an IIFE:</p>
+        <code>
+            (function(window, document) { // Your code here })(window,
+            document);
+        </code>
+        <p>How to use an IIFE in your code?</p>
+        <p>
+            For your application, you can wrap your entire script inside an
+            IIFE. By doing this, any variables or functions you define won't be
+            added to the global namespace, but your event listeners and other
+            functionalities will still work as expected because they're still
+            executed immediately.
+        </p>
+        <code>
+            (function() { <br />
+            // Constants and Global Variables <br />
+            // ... <br />
+            // DOM Elements <br />
+            // ... <br />
+            // Utility Functions <br />
+            // ... <br />
+            // Event Handlers <br />
+            // ...<br />
+            // Main <br />
+            // ... <br />
+            })();
+        </code>
+        <p>
+            By wrapping your code in an IIFE, you're ensuring that you don't
+            accidentally introduce conflicts with other scripts or libraries
+            that might be included on the same page.
+        </p>
+        <p>
+            Do note that while IIFEs are a great way to avoid global namespace
+            pollution, modern JavaScript development often uses tools and
+            techniques like modules, bundlers (e.g., Webpack, Rollup), and
+            transpilers (e.g., Babel) to manage and isolate code. However, for
+            smaller applications or scripts, an IIFE is a simple and effective
+            solution.
+        </p>
+        `,
+    },
+    {
         title: "JavaScript: Generate Unique ID",
-        id: "0006",
+        id: "0008",
         tech: "JavaScript",
         body: `
         <p>
@@ -632,7 +772,7 @@ export const articles = [
     },
     {
         title: "Node.js: Installation (macOS)",
-        id: "0007",
+        id: "0009",
         tech: "Node.js",
         body: `
         <p>
@@ -683,7 +823,7 @@ export const articles = [
     },
     {
         title: "Node.js: Installation (Windows)",
-        id: "0008",
+        id: "0010",
         tech: "Node.js",
         body: `
         <p>
@@ -740,7 +880,7 @@ export const articles = [
     },
     {
         title: "Parcel: Installing and Running Parcel in Project Directory",
-        id: "0009",
+        id: "0011",
         tech: "Parcel",
         body: `
             <ol>
@@ -822,7 +962,7 @@ export const articles = [
     },
     {
         title: "Parcel: Installing and Running Parcel (ver 2)",
-        id: "0010",
+        id: "0012",
         tech: "Parcel",
         body: `
             <ol>
@@ -954,16 +1094,9 @@ export const articles = [
     //     body: `
     //     `,
     // },
-    // {
-    //     title: "",
-    //     id: "",
-    //     tech: "",
-    //     body: `
-    //     `,
-    // },
     {
         title: "VS Code: Installation",
-        id: "0011",
+        id: "0020",
         tech: "VS Code",
         body: `
         <ol>
