@@ -586,24 +586,341 @@ export const articles = [
         `,
     },
     {
-        title: "",
-        id: "",
-        tech: "",
+        title: "Node.js: Installation (macOS)",
+        id: "0006",
+        tech: "Node.js",
         body: `
+        <p>
+            Visit the official Node.js website at
+            <a href="https://nodejs.org/en/">https://nodejs.org/en/</a> in your
+            web browser.
+        </p>
+        <p>
+            On the homepage, you'll see two download options: LTS (Long-Term
+            Support) and Current. For most users, it's recommended to download
+            the LTS version as it provides a more stable and reliable
+            environment. Click on the "LTS" button to download the macOS
+            installer.
+        </p>
+        <p>
+            Once the installer is downloaded, double-click on it to launch the
+            installation package.
+        </p>
+        <p>
+            Follow the prompts in the installation package and accept the
+            license agreement. Leave the default settings as they are unless you
+            have specific requirements.
+        </p>
+        <p>
+            The installer will copy the necessary files and set up Node.js on
+            your macOS system.
+        </p>
+        <p>
+            Once the installation is complete, open the Terminal application.
+            You can find it by going to Applications → Utilities → Terminal.
+        </p>
+        <p>
+            In the Terminal, type the following command to verify the
+            installation:
+        </p>
+        <pre><code>node -v</code></pre>
+        <p>
+            If you see the version number, it means Node.js is installed
+            correctly.
+        </p>
+        <p>
+            Additionally, you can also check the version of npm by running the
+            following command in the Terminal:
+        </p>
+        <pre><code>npm -v</code></pre>
+        <p>This will display the version of npm installed on your system.</p>
         `,
     },
     {
-        title: "",
-        id: "",
-        tech: "",
+        title: "Node.js: Installation (Windows)",
+        id: "0007",
+        tech: "Node.js",
         body: `
+        <p>
+            Visit the official Node.js website at
+            <a href="https://nodejs.org/en/">https://nodejs.org/en/</a> in your
+            web browser.
+        </p>
+        <p>
+            On the homepage, you'll see two download options: LTS (Long-Term
+            Support) and Current. For most users, it's recommended to download
+            the LTS version as it provides a more stable and reliable
+            environment. Click on the "LTS" button to download the installer.
+        </p>
+        <p>
+            Once the installer is downloaded, double-click on it to launch the
+            installation wizard.
+        </p>
+        <p>
+            In the installation wizard, follow the prompts and accept the
+            license agreement. Leave the default settings as they are unless you
+            have specific requirements.
+        </p>
+        <p>
+            On the "Select components" screen, make sure the checkboxes next to
+            "Node.js runtime" and "npm package manager" are selected. You can
+            also choose to install additional tools if needed.
+        </p>
+        <p>
+            Choose the installation location where you want Node.js to be
+            installed. By default, it will be installed in the "Program Files"
+            folder.
+        </p>
+        <p>
+            Click the "Next" button and proceed with the installation. The
+            installer will copy the necessary files and set up Node.js on your
+            computer.
+        </p>
+        <p>
+            Once the installation is complete, open the Command Prompt and type
+            the following command to verify the installation:
+        </p>
+        <pre><code>node -v</code></pre>
+        <p>
+            If you see the version number, it means Node.js is installed
+            correctly.
+        </p>
+        <p>
+            Additionally, you can also check the version of npm by running the
+            following command in the Command Prompt:
+        </p>
+        <pre><code>npm -v</code></pre>
+        <p>This will display the version of npm installed on your system.</p>
         `,
     },
     {
-        title: "",
-        id: "",
-        tech: "",
+        title: "Parcel: Installing and Running Parcel in Project Directory",
+        id: "0008",
+        tech: "Parcel",
         body: `
+            <ol>
+                <li>
+                    <strong>Step 1: Initialize an npm project</strong>
+                    <p>
+                        Open your terminal or command prompt and navigate to
+                        your project directory:
+                    </p>
+                    <pre><code>cd /path/to/your/project</code></pre>
+                    <p>
+                        Run the following command to initialize a new npm
+                        project:
+                    </p>
+                    <pre><code>npm init -y</code></pre>
+                </li>
+
+                <li>
+                    <strong
+                        >Step 2: Install Parcel as a development
+                        dependency</strong
+                    >
+                    <p>
+                        After navigating to your project directory, install
+                        Parcel by running the following command:
+                    </p>
+                    <pre><code>npm install parcel-bundler --save-dev</code></pre>
+                </li>
+
+                <li>
+                    <strong>Step 3: Create project files</strong>
+                    <p>
+                        Create an HTML file (e.g., <code>index.html</code>) in
+                        your project directory. Add your HTML, CSS, and
+                        JavaScript code to the appropriate files.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Step 4: Configure package.json</strong>
+                    <p>
+                        Open the <code>package.json</code> file in a text
+                        editor. Add the following line to the
+                        <code>scripts</code> section:
+                    </p>
+                    <pre><code>"build": "parcel build src/index.html"</code></pre>
+                </li>
+
+                <li>
+                    <strong>Step 5: Start the Parcel server</strong>
+                    <p>
+                        To start the Parcel server and bundle your project
+                        files, use the following command:
+                    </p>
+                    <pre><code>npx parcel src/index.html</code></pre>
+                    <p>
+                        Replace <code>src/index.html</code> with the path to
+                        your entry HTML file if it's located in a different
+                        directory.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Step 6: View your project</strong>
+                    <p>
+                        The server will start, and you should see output
+                        indicating the server is running at
+                        <code>http://localhost:1234</code> (or a different port
+                        if 1234 is already in use). Open your web browser and
+                        visit the URL to see your project running.
+                    </p>
+                </li>
+            </ol>
+            <p>
+                Remember to stop the server when you're done by pressing "Ctrl +
+                C" in the terminal or command prompt.
+            </p>
         `,
     },
+    {
+        title: "Parcel: Installing and Running Parcel (ver 2)",
+        id: "0009",
+        tech: "Parcel",
+        body: `
+            <ol>
+                <li>
+                    <strong>Step 1: Initialize an npm project</strong>
+                    <p>
+                        Open your terminal or command prompt and navigate to
+                        your project directory:
+                    </p>
+                    <pre><code>cd /path/to/your/project</code></pre>
+                    <p>
+                        Run the following command to initialize a new npm
+                        project:
+                    </p>
+                    <pre><code>npm init -y</code></pre>
+                </li>
+
+                <li>
+                    <strong
+                        >Step 2: Install Parcel as a development
+                        dependency</strong
+                    >
+                    <p>
+                        After navigating to your project directory, install
+                        Parcel v2 by running the following command:
+                    </p>
+                    <pre><code>npm install parcel --save-dev</code></pre>
+                </li>
+
+                <li>
+                    <strong>Step 3: Create project files</strong>
+                    <p>
+                        Create an HTML file (e.g., <code>index.html</code>) in
+                        your project directory. Add your HTML, CSS, and
+                        JavaScript code to the appropriate files.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Step 4: Configure package.json</strong>
+                    <p>
+                        Open the <code>package.json</code> file in a text
+                        editor. You can add one of the following lines to the
+                        <code>scripts</code> section for building your project:
+                    </p>
+                    <pre><code>"build": "parcel build src/index.html"</code></pre>
+                    <p>or, for more advanced configurations:</p>
+                    <pre><code>"build": "parcel build --no-source-maps --dist-dir prod"</code></pre>
+                    <p>
+                        The first command is a basic build, while the second
+                        disables source maps and outputs to a directory named
+                        <code>prod</code>.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Step 5: Start the Parcel server</strong>
+                    <p>
+                        To start the Parcel server and bundle your project
+                        files, use the following command:
+                    </p>
+                    <pre><code>npm run start</code></pre>
+                    <p>
+                        This command will start the development server using the
+                        entry file you specified in the
+                        <code>package.json</code> scripts.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Step 6: View your project</strong>
+                    <p>
+                        The server will start, and you should see output
+                        indicating the server is running at
+                        <code>http://localhost:1234</code> (or a different port
+                        if 1234 is already in use). Open your web browser and
+                        visit the URL to see your project running.
+                    </p>
+                </li>
+            </ol>
+
+            <p>
+                Remember to stop the server when you're done by pressing "Ctrl +
+                C" in the terminal or command prompt.
+            </p>
+            <br />
+            <strong>GitHub Hosting Suggestions</strong>
+            <p>
+                For hosting at GitHub Pages use 'docs' folder for production
+                files AND check references (should be
+                href="./index.19b52dcd.css" instead of
+                href="/index.19b52dcd.css")
+            </p>
+            <p>
+                To solve the issue while building production files you may use:
+            </p>
+            <p>for Parcel v.1</p>
+            <code>
+                "scripts": { "build": "parcel build src/index.html --public-url
+                ./ --out-dir docs" }
+            </code>
+            <p>for Parcel v.2</p>
+            <code>
+                "scripts": { "build": "npx parcel build src/index.html
+                --public-url ./ --dist-dir docs" }
+            </code>
+            <p>After modifying the script, simply run:</p>
+            <code>npm run build</code>
+        `,
+    },
+    // {
+    //     title: "",
+    //     id: "",
+    //     tech: "",
+    //     body: `
+    //     `,
+    // },
+    // {
+    //     title: "",
+    //     id: "",
+    //     tech: "",
+    //     body: `
+    //     `,
+    // },
+    // {
+    //     title: "",
+    //     id: "",
+    //     tech: "",
+    //     body: `
+    //     `,
+    // },
+    // {
+    //     title: "",
+    //     id: "",
+    //     tech: "",
+    //     body: `
+    //     `,
+    // },
+    // {
+    //     title: "",
+    //     id: "",
+    //     tech: "",
+    //     body: `
+    //     `,
+    // },
 ];
