@@ -180,8 +180,53 @@ export const articles = [
             `,
     },
     {
-        title: "General: Code Refactoring",
+        title: "General: Code Types",
         id: "0003",
+        tech: "General",
+        body: `
+        <ul>
+            <li>
+                <strong> Monolithic Code: </strong>
+                This term is often used in the context of applications as a
+                whole. A monolithic application is built as a single, unified
+                unit. Any change to any part of the system requires rebuilding
+                and deploying the entire application. This approach contrasts
+                with modular or microservices architectures, where different
+                functionalities are separated into individual services or
+                modules.
+            </li>
+            <li>
+                <strong> Procedural Code: </strong>
+
+                This refers to the programming paradigm based on the concept of
+                procedure calls. Procedures (or functions) are blocks of code
+                that can be abstracted and called as needed. Procedural
+                programming is characterized by a linear and top-down structure,
+                where there's a clear sequence of code execution. This contrasts
+                with object-oriented programming, where code is organized around
+                objects.
+            </li>
+            <li>
+                When code is written in a single file without any clear
+                organization, patterns, or modules, it's often just referred to
+                as <strong> "spaghetti code" </strong>. This term is informal
+                and often used pejoratively, indicating that the code is tangled
+                and hard to follow or maintain.
+            </li>
+            <li>
+                Using design patterns like <strong> M-V-C </strong> or
+                modularizing the code is recommended for larger projects because
+                it offers several benefits, such as improved maintainability,
+                easier debugging, and better collaboration among developers.
+                However, for very small scripts or quick prototypes, a simple
+                linear or procedural approach might be sufficient.
+            </li>
+        </ul>
+        `,
+    },
+    {
+        title: "General: Code Refactoring",
+        id: "0004",
         tech: "General",
         body: `
         <p>
@@ -336,7 +381,7 @@ export const articles = [
     },
     {
         title: "JavaScript: Function Types",
-        id: "0004",
+        id: "0005",
         tech: "JavaScript",
         body: `
         <p>
@@ -515,7 +560,7 @@ export const articles = [
     },
     {
         title: "JavaScript: Generate Unique ID",
-        id: "0005",
+        id: "0006",
         tech: "JavaScript",
         body: `
         <p>
@@ -587,7 +632,7 @@ export const articles = [
     },
     {
         title: "Node.js: Installation (macOS)",
-        id: "0006",
+        id: "0007",
         tech: "Node.js",
         body: `
         <p>
@@ -638,7 +683,7 @@ export const articles = [
     },
     {
         title: "Node.js: Installation (Windows)",
-        id: "0007",
+        id: "0008",
         tech: "Node.js",
         body: `
         <p>
@@ -695,7 +740,7 @@ export const articles = [
     },
     {
         title: "Parcel: Installing and Running Parcel in Project Directory",
-        id: "0008",
+        id: "0009",
         tech: "Parcel",
         body: `
             <ol>
@@ -777,7 +822,7 @@ export const articles = [
     },
     {
         title: "Parcel: Installing and Running Parcel (ver 2)",
-        id: "0009",
+        id: "0010",
         tech: "Parcel",
         body: `
             <ol>
@@ -916,11 +961,39 @@ export const articles = [
     //     body: `
     //     `,
     // },
-    // {
-    //     title: "",
-    //     id: "",
-    //     tech: "",
-    //     body: `
-    //     `,
-    // },
+    {
+        title: "VS Code: Installation",
+        id: "0011",
+        tech: "VS Code",
+        body: `
+        <ol>
+          <li>
+            <p>
+              Go to the official VS Code website: 
+              <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              Click on the "Download for [Your Operating System]" button. For example, if you're using Windows, click on "Download for Windows".
+            </p>
+          </li>
+          <li>
+            <p>
+              Once the download is complete, run the installer.
+            </p>
+          </li>
+          <li>
+            <p>
+              Follow the instructions in the installer to complete the installation process.
+            </p>
+          </li>
+          <li>
+            <p>
+              After the installation is finished, launch Visual Studio Code.
+            </p>
+          </li>
+        </ol>
+        `,
+    },
 ];
